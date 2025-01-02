@@ -26,7 +26,8 @@ console.log(arr);
 
 
 var obj = {
-    name :"raj"
+    name :"raj",
+    age: 24
 }
  var o1 = {...obj}
 console.log(o1);

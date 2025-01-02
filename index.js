@@ -19,71 +19,111 @@
 // // console.log(arr);
 
 
-//   let obj = {
-//  "key" : "value",
-//  key2 : "value2",
-//  "key3" : {
-//     "key4" : "value4",
-//  }
-// }
+  let obj = {
+ "key" : "value",
+ key2 : "value2",
+ "key3" : {
+    "key4" : "value4",
+ }
+}
   
-// // console.log(obj)
-// // console.log(obj["key"])
-// // console.log(obj.key3)
-// // console.log(obj["key2"])
+const obj3 = Object.create(null);
+const obj2 = { __proto__: null };
 
-// // 1222334 = 1234
 
-// // conditional  
-// // if else if else
-// // switch case default
-// // ternary operator
-// // let a = 12000; // 0 1 
-// // if( a > 10){
-// //  console.log("hy")
-// // }
-// // else if (a > 11000){
-// //     console.log("else if")
-// // }
-// // else{
-// //     console.log("haaaa")
-// // }
+const normalObj = {}; // create a normal object
 
-// // switch case default
-// // var fruit = 'hy';
 
-// // switch (fruit) {
-// //   case 'apple':
-// //     console.log('The fruit is an apple.');
-// //     break;
-// //   case 'banana':
-// //     console.log('The fruit is a banana.');
-// //     break;
-// //   case 'orange':
-// //     console.log('The fruit is an orange.');
-// //     break;
-// //   default:
-// //     console.log('The fruit is unknown.');
+const nullProtoObj = Object.create(null); // create an object with "null" prototype
+
+console.log(`normalObj is: ${normalObj}`); // shows "normalObj is: [object Object]"
+console.log(`nullProtoObj is: ${nullProtoObj}`); // throws error: Cannot convert object to primitive value
+
+alert(normalObj); // shows [object Object]
+alert(nullProtoObj); // throws error: Cannot convert object to primitive value
+normalObj.valueOf(); // shows {}
+nullProtoObj.valueOf(); // throws error: nullProtoObj.valueOf is not a function
+
+normalObj.hasOwnProperty("p"); // shows "true"
+nullProtoObj.hasOwnProperty("p"); // throws error: nullProtoObj.hasOwnProperty is not a function
+
+normalObj.constructor; // shows "Object() { [native code] }"
+nullProtoObj.constructor; // shows "undefined"
+
+// console.log(obj)
+// console.log(obj["key"])
+// console.log(obj.key3)
+// console.log(obj["key2"])
+
+
+const ages = { alice: 18, bob: 27 };
+
+function hasPerson(name) {
+
     
-// // }
+  return name in ages;
+}
+
+function getAge(name) {
+  return ages[name];
+}
+
+hasPerson("hasOwnProperty"); // true
+getAge("toString"); // [Function: toString]
 
 
-// // ternary operator
-//     //  ? ture : false ; 
-//    //  let a = 13000
-//    //  let b = a > 10000 ? true : false;
-//     // console.log(b);
+// 1222334 = 1234
+
+// conditional  
+// if else if else
+// switch case default
+// ternary operator
+// let a = 12000; // 0 1 
+// if( a > 10){
+//  console.log("hy")
+// }
+// else if (a > 11000){
+//     console.log("else if")
+// }
+// else{
+//     console.log("haaaa")
+// }
+
+// switch case default
+// var fruit = 'hy';
+
+// switch (fruit) {
+//   case 'apple':
+//     console.log('The fruit is an apple.');
+//     break;
+//   case 'banana':
+//     console.log('The fruit is a banana.');
+//     break;
+//   case 'orange':
+//     console.log('The fruit is an orange.');
+//     break;
+//   default:
+//     console.log('The fruit is unknown.');
+    
+// }
+
+
+// ternary operator
+    //  ? ture : false ; 
+   //  let a = 13000
+   //  let b = a > 10000 ? true : false;
+    // console.log(b);
      
-//     // loop
-//     // for loop
-//     // while
-//     // do while 
-//     // for of
-//     // for in 
+    // loop
+    // for loop
+    // while
+    // do while 
+    // for of
+    // for in 
 
-//     // for of
-//     // for (let a of )
-//     // for in 
+    // for of
+    // for (let a of )
+    // for in 
       
 //     arr.push(5)
 //     console.log(arr) // [1, 3, 4, 3, 5]

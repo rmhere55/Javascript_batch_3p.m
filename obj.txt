@@ -1,0 +1,188 @@
+### *Question 1: Object Basics*
+What will be the output of the following code, and why?
+
+
+
+### *Question 2: Object Destructuring*
+Given the object:
+
+
+Write code to extract name, age, and city using destructuring.
+
+
+
+### *Question 3: Dynamic Property Access*
+How can you dynamically access and update an object's property when the property name is stored in a variable?
+
+
+Update the name property of the person object to "Doe" using the key variable.
+
+
+
+### *Question 4: Iterating Over Object Properties*
+What are the different ways to iterate over the properties of the following object? Provide code examples.
+
+
+### **Question 5: Object Methods and this**
+Consider the following object:
+
+What will happen if you call car.start()?  
+What will happen if you store the car.start method in a variable and call it, like this?
+
+
+
+### **Answers and Explanations**
+
+---
+
+### **Question 1: Object Basics**
+**Code:**
+```javascript
+const person = {
+    name: "John",
+    age: 30,
+};
+person.age = 35;
+console.log(person);
+```
+
+**Output:**
+```javascript
+{ name: "John", age: 35 }
+```
+
+**Explanation:**
+Even though the object `person` is defined using `const`, its properties can still be modified because `const` only prevents reassignment of the entire object, not changes to its internal properties.
+
+---
+
+### **Question 2: Object Destructuring**
+**Object:**
+```javascript
+const person = {
+    name: "Alice",
+    age: 25,
+    city: "New York",
+};
+```
+
+**Code to extract properties:**
+```javascript
+const { name, age, city } = person;
+console.log(name, age, city); // Output: Alice 25 New York
+```
+
+**Explanation:**
+Destructuring allows us to extract properties directly into variables. The variable names must match the property names in the object.
+
+---
+
+### **Question 3: Dynamic Property Access**
+**Code:**
+```javascript
+const person = {
+    name: "John",
+    age: 30,
+};
+
+const key = "name";
+person[key] = "Doe"; // Dynamically access and update the "name" property
+console.log(person);
+```
+
+**Output:**
+```javascript
+{ name: "Doe", age: 30 }
+```
+
+**Explanation:**
+To dynamically access or update an object's property, use square bracket notation (`object[propertyName]`). The `key` variable holds the property name, allowing dynamic updates.
+
+---
+
+### **Question 4: Iterating Over Object Properties**
+**Object:**
+```javascript
+const person = {
+    name: "Alice",
+    age: 25,
+    city: "New York",
+};
+```
+
+**Different ways to iterate:**
+1. **Using `for...in` loop:**
+   ```javascript
+   for (let key in person) {
+       console.log(`${key}: ${person[key]}`);
+   }
+   ```
+   **Output:**
+   ```
+   name: Alice
+   age: 25
+   city: New York
+   ```
+
+2. **Using `Object.keys`:**
+   ```javascript
+   Object.keys(person).forEach((key) => {
+       console.log(`${key}: ${person[key]}`);
+   });
+   ```
+
+3. **Using `Object.entries`:**
+   ```javascript
+   for (const [key, value] of Object.entries(person)) {
+       console.log(`${key}: ${value}`);
+   }
+   ```
+
+4. **Using `Object.values`:**
+   ```javascript
+   Object.values(person).forEach((value) => {
+       console.log(value);
+   });
+   ```
+
+---
+
+### **Question 5: Object Methods and `this`**
+**Object:**
+```javascript
+const car = {
+    brand: "Toyota",
+    start() {
+        console.log(`The car ${this.brand} has started.`);
+    },
+};
+```
+
+1. **Calling `car.start()`:**
+   **Code:**
+   ```javascript
+   car.start();
+   ```
+   **Output:**
+   ```
+   The car Toyota has started.
+   ```
+   **Explanation:**  
+   The `this` keyword refers to the object `car`. So `this.brand` correctly accesses `Toyota`.
+
+2. **Storing the method in a variable:**
+   **Code:**
+   ```javascript
+   const startCar = car.start;
+   startCar();
+   ```
+   **Output:**
+   ```
+   The car undefined has started.
+   ```
+   **Explanation:**  
+   When the method is assigned to a variable, `this` loses its binding to the `car` object and defaults to `undefined` (or the global object in non-strict mode). To preserve the binding, you can use `bind`:
+   ```javascript
+   const startCar = car.start.bind(car);
+   startCar(); // Output: The car Toyota has started.
+   ```
