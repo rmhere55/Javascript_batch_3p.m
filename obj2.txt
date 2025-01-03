@@ -1,0 +1,249 @@
+Basic Questions
+What is an object in JavaScript? How do you create one?
+What is the difference between Object.create() and object literals ({})?
+How do you access and modify object properties?
+Example: Given let obj = { name: 'Alice', age: 25 };, how do you:
+Access name?
+Change age to 30?
+What are computed property names in JavaScript?
+Example: How would you create an object with a dynamic property name stored in a variable?
+How do you iterate over the properties of an object?
+What is the difference between in and hasOwnProperty?
+How do you delete a property from an object?
+What is the purpose of Object.keys(), Object.values(), and Object.entries()?
+Medium-Level Questions
+What is object destructuring?
+Example: Given let obj = { name: 'Alice', age: 25 };, how would you extract name and age into separate variables?
+What is the difference between shallow copy and deep copy in objects? How would you create each?
+How do you merge two objects in JavaScript?
+Example: Merge { name: 'Alice' } and { age: 25 } into one object.
+What is the difference between Object.freeze() and Object.seal()?
+How does this behave in an object method?
+Example: Why does this behave differently in the following:
+javascript
+Copy code
+const obj = {
+  name: 'Alice',
+  greet: function () {
+    console.log(this.name);
+  }
+};
+const greetFn = obj.greet;
+greetFn(); // What is logged?
+Explain and demonstrate prototypal inheritance in JavaScript.
+Example: How would you create an object that inherits from another object?
+What are getters and setters in JavaScript objects?
+Example: How would you add a getter for fullName in an object with firstName and lastName properties?
+How do you clone an object in JavaScript?
+Example: Clone { name: 'Alice', details: { age: 25 } } without modifying the original when changing details.age.
+What is a symbol, and how can it be used as a property key in an object?
+How would you implement a simple deep equality check for two objects?
+Challenge Questions
+Write a function to find the first non-repeating character in a string using an object.
+Create a function that takes an object and returns a new object with the keys and values swapped.
+Implement a function to flatten a nested object.
+Example: { a: { b: { c: 1 } } } → { 'a.b.c': 1 }
+How do you add a method dynamically to an object?
+Example: Add a method greet to { name: 'Alice' } that logs "Hello, Alice!".
+Write a function to check if two objects have the same structure (keys and nested keys).
+
+
+
+
+
+
+
+Answers
+
+### **Answers to Basic and Medium JavaScript Object Questions**
+
+---
+
+#### **Basic Questions**
+1. **What is an object in JavaScript? How do you create one?**
+   - **Answer**: An object is a collection of key-value pairs. Keys are strings (or symbols), and values can be of any type.  
+     **Example**:  
+     ```javascript
+     let obj = { name: 'Alice', age: 25 };
+     let obj2 = new Object(); // Creates an empty object
+     ```
+
+2. **What is the difference between `Object.create()` and object literals (`{}`)?**
+   - **Answer**: `Object.create()` creates a new object with the specified prototype object, while `{}` creates an object with a prototype of `Object.prototype`.
+     ```javascript
+     let proto = { greet: () => 'Hello!' };
+     let obj = Object.create(proto); // obj.__proto__ === proto
+     let obj2 = {}; // obj2.__proto__ === Object.prototype
+     ```
+
+3. **How do you access and modify object properties?**
+   ```javascript
+   let obj = { name: 'Alice', age: 25 };
+
+   // Access
+   console.log(obj.name); // Dot notation
+   console.log(obj['age']); // Bracket notation
+
+   // Modify
+   obj.age = 30;
+   obj['name'] = 'Bob';
+   ```
+
+4. **What are computed property names in JavaScript?**
+   - **Answer**: Computed property names allow you to use expressions as keys in an object.
+     ```javascript
+     let key = 'dynamicKey';
+     let obj = { [key]: 'value' }; // { dynamicKey: 'value' }
+     ```
+
+5. **How do you iterate over the properties of an object?**
+   ```javascript
+   let obj = { name: 'Alice', age: 25 };
+
+   // Using for...in
+   for (let key in obj) {
+     console.log(key, obj[key]);
+   }
+
+   // Using Object.keys()
+   Object.keys(obj).forEach((key) => console.log(key, obj[key]));
+   ```
+
+6. **What is the difference between `in` and `hasOwnProperty`?**
+   - **Answer**:
+     - `in`: Checks if a property exists in the object or its prototype chain.
+     - `hasOwnProperty`: Checks if a property exists directly on the object.
+     ```javascript
+     let obj = { name: 'Alice' };
+     console.log('toString' in obj); // true
+     console.log(obj.hasOwnProperty('toString')); // false
+     ```
+
+7. **How do you delete a property from an object?**
+   ```javascript
+   let obj = { name: 'Alice', age: 25 };
+   delete obj.age; // { name: 'Alice' }
+   ```
+
+8. **What is the purpose of `Object.keys()`, `Object.values()`, and `Object.entries()`?**
+   - **Answer**:
+     - `Object.keys()`: Returns an array of property names.
+     - `Object.values()`: Returns an array of property values.
+     - `Object.entries()`: Returns an array of key-value pairs.
+     ```javascript
+     let obj = { name: 'Alice', age: 25 };
+     console.log(Object.keys(obj)); // ['name', 'age']
+     console.log(Object.values(obj)); // ['Alice', 25]
+     console.log(Object.entries(obj)); // [['name', 'Alice'], ['age', 25]]
+     ```
+
+---
+
+#### **Medium-Level Questions**
+1. **What is object destructuring?**
+   ```javascript
+   let obj = { name: 'Alice', age: 25 };
+   let { name, age } = obj;
+   console.log(name, age); // Alice, 25
+   ```
+
+2. **What is the difference between shallow copy and deep copy in objects?**
+   - **Answer**:
+     - Shallow Copy: Copies only the first level of the object.
+     - Deep Copy: Recursively copies all levels of the object.
+     ```javascript
+     let obj = { name: 'Alice', details: { age: 25 } };
+
+     // Shallow Copy
+     let shallowCopy = { ...obj };
+
+     // Deep Copy
+     let deepCopy = JSON.parse(JSON.stringify(obj));
+     ```
+
+3. **How do you merge two objects in JavaScript?**
+   ```javascript
+   let obj1 = { name: 'Alice' };
+   let obj2 = { age: 25 };
+   let merged = { ...obj1, ...obj2 }; // { name: 'Alice', age: 25 }
+   ```
+
+4. **What is the difference between `Object.freeze()` and `Object.seal()`?**
+   - **Answer**:
+     - `Object.freeze()`: Prevents adding, removing, or modifying properties.
+     - `Object.seal()`: Prevents adding or removing properties but allows modification of existing ones.
+     ```javascript
+     let obj = { name: 'Alice' };
+     Object.freeze(obj); // obj.name = 'Bob'; // Error
+
+     let obj2 = { name: 'Alice' };
+     Object.seal(obj2); // obj2.name = 'Bob'; // Works
+     ```
+
+5. **How does `this` behave in an object method?**
+   ```javascript
+   const obj = {
+     name: 'Alice',
+     greet() {
+       console.log(this.name); // 'Alice'
+     },
+   };
+   const greetFn = obj.greet;
+   greetFn(); // 'undefined' (in strict mode)
+   ```
+
+6. **Explain prototypal inheritance in JavaScript.**
+   ```javascript
+   let parent = { greet: () => 'Hello!' };
+   let child = Object.create(parent); // child.__proto__ === parent
+   console.log(child.greet()); // 'Hello!'
+   ```
+
+7. **What are getters and setters in JavaScript objects?**
+   ```javascript
+   let obj = {
+     firstName: 'Alice',
+     lastName: 'Smith',
+     get fullName() {
+       return `${this.firstName} ${this.lastName}`;
+     },
+     set fullName(value) {
+       [this.firstName, this.lastName] = value.split(' ');
+     },
+   };
+   obj.fullName = 'Bob Johnson';
+   console.log(obj.fullName); // 'Bob Johnson'
+   ```
+
+8. **How do you clone an object in JavaScript?**
+   ```javascript
+   let obj = { name: 'Alice', details: { age: 25 } };
+   let shallowCopy = { ...obj };
+   let deepCopy = JSON.parse(JSON.stringify(obj));
+   ```
+
+9. **What is a symbol, and how can it be used as a property key?**
+   ```javascript
+   let sym = Symbol('key');
+   let obj = { [sym]: 'value' };
+   console.log(obj[sym]); // 'value'
+   
+
+10. **How would you implement a simple deep equality check for two objects?**
+   ```javascript
+
+   function deepEqual(obj1, obj2) {
+     if (obj1 === obj2) return true;
+     if (typeof obj1 !== 'object' || typeof obj2 !== 'object') return false;
+
+     let keys1 = Object.keys(obj1);
+     let keys2 = Object.keys(obj2);
+
+     if (keys1.length !== keys2.length) return false;
+
+     for (let key of keys1) {
+       if (!deepEqual(obj1[key], obj2[key])) return false;
+     }
+     return true;
+   }
+   
