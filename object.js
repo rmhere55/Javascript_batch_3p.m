@@ -73,6 +73,10 @@ console.log(person);
 
 
 
+   // Using for...in
+   for (let key in obj) {
+    console.log(key, obj[key]);
+  }
 
    Object.keys(person).forEach((key) => {
        console.log(`${key}: ${person[key]}`);
