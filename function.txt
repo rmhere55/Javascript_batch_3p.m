@@ -1,0 +1,221 @@
+Basic-Level Questions
+Write a function that adds two numbers.
+
+Input: add(3, 5)
+Output: 8
+Create a function to check if a number is even or odd.
+
+Input: isEven(4)
+Output: true
+Write a function that calculates the factorial of a number.
+
+Input: factorial(5)
+Output: 120
+Write a function to find the largest of three numbers.
+
+Input: maxOfThree(10, 20, 5)
+Output: 20
+Create a function that returns the reverse of a string.
+
+Input: reverseString("hello")
+Output: "olleh"
+Medium-Level Questions
+Write a function to calculate the Fibonacci sequence up to n terms.
+
+Input: fibonacci(6)
+Output: [0, 1, 1, 2, 3, 5]
+Create a function that checks if a string is a palindrome.
+
+Input: isPalindrome("madam")
+Output: true
+Write a function to count the number of vowels in a string.
+
+Input: countVowels("programming")
+Output: 3
+Write a function to check if a number is prime.
+
+Input: isPrime(7)
+Output: true
+Create a function that returns the sum of an array of numbers.
+
+Input: sumArray([1, 2, 3, 4, 5])
+Output: 15
+Challenge/Extended Questions
+Write a function to find the second largest number in an array.
+
+Input: secondLargest([10, 5, 20, 8])
+Output: 10
+Create a function that flattens a nested array.
+
+Input: flattenArray([1, [2, [3, 4], 5]])
+Output: [1, 2, 3, 4, 5]
+Write a function to find the GCD (Greatest Common Divisor) of two numbers.
+
+Input: gcd(24, 36)
+Output: 12
+Create a function that removes duplicate elements from an array.
+
+Input: removeDuplicates([1, 2, 2, 3, 4, 4])
+Output: [1, 2, 3, 4]
+Write a function that converts a string to title case (capitalizing the first letter of each word).
+
+Input: titleCase("hello world")
+Output: "Hello World"
+
+
+
+
+
+
+Here are the solutions to the function questions provided earlier:
+
+---
+
+### **Basic-Level Questions**
+1. **Add two numbers:**
+   ```javascript
+   function add(a, b) {
+       return a + b;
+   }
+   console.log(add(3, 5)); // Output: 8
+   ```
+
+2. **Check if a number is even or odd:**
+   ```javascript
+   function isEven(num) {
+       return num % 2 === 0;
+   }
+   console.log(isEven(4)); // Output: true
+   ```
+
+3. **Calculate the factorial of a number:**
+   ```javascript
+   function factorial(n) {
+       if (n === 0 || n === 1) return 1;
+       return n * factorial(n - 1);
+   }
+   console.log(factorial(5)); // Output: 120
+   ```
+
+4. **Find the largest of three numbers:**
+   ```javascript
+   function maxOfThree(a, b, c) {
+       return Math.max(a, b, c);
+   }
+   console.log(maxOfThree(10, 20, 5)); // Output: 20
+   ```
+
+5. **Reverse a string:**
+   ```javascript
+   function reverseString(str) {
+       return str.split('').reverse().join('');
+   }
+   console.log(reverseString("hello")); // Output: "olleh"
+   ```
+
+---
+
+### **Medium-Level Questions**
+6. **Fibonacci sequence up to `n` terms:**
+   ```javascript
+   function fibonacci(n) {
+       const sequence = [0, 1];
+       for (let i = 2; i < n; i++) {
+           sequence.push(sequence[i - 1] + sequence[i - 2]);
+       }
+       return sequence.slice(0, n);
+   }
+   console.log(fibonacci(6)); // Output: [0, 1, 1, 2, 3, 5]
+   ```
+
+7. **Check if a string is a palindrome:**
+   ```javascript
+   function isPalindrome(str) {
+       const reversed = str.split('').reverse().join('');
+       return str === reversed;
+   }
+   console.log(isPalindrome("madam")); // Output: true
+   ```
+
+8. **Count the number of vowels in a string:**
+   ```javascript
+   function countVowels(str) {
+       const vowels = "aeiouAEIOU";
+       return [...str].filter(char => vowels.includes(char)).length;
+   }
+   console.log(countVowels("programming")); // Output: 3
+   ```
+
+9. **Check if a number is prime:**
+   ```javascript
+   function isPrime(num) {
+       if (num <= 1) return false;
+       for (let i = 2; i < Math.sqrt(num) + 1; i++) {
+           if (num % i === 0) return false;
+       }
+       return true;
+   }
+   console.log(isPrime(7)); // Output: true
+   ```
+
+10. **Sum of an array of numbers:**
+    ```javascript
+    function sumArray(arr) {
+        return arr.reduce((sum, num) => sum + num, 0);
+    }
+    console.log(sumArray([1, 2, 3, 4, 5])); // Output: 15
+    ```
+
+---
+
+### **Challenge/Extended Questions**
+11. **Find the second largest number in an array:**
+    ```javascript
+    function secondLargest(arr) {
+        const uniqueSorted = [...new Set(arr)].sort((a, b) => b - a);
+        return uniqueSorted[1];
+    }
+    console.log(secondLargest([10, 5, 20, 8])); // Output: 10
+    ```
+
+12. **Flatten a nested array:**
+    ```javascript
+    function flattenArray(arr) {
+        return arr.flat(Infinity);
+    }
+    console.log(flattenArray([1, [2, [3, 4], 5]])); // Output: [1, 2, 3, 4, 5]
+    ```
+
+13. **Find the GCD of two numbers:**
+    ```javascript
+    function gcd(a, b) {
+        while (b) {
+            [a, b] = [b, a % b];
+        }
+        return a;
+    }
+    console.log(gcd(24, 36)); // Output: 12
+    ```
+
+14. **Remove duplicate elements from an array:**
+    ```javascript
+    function removeDuplicates(arr) {
+        return [...new Set(arr)];
+    }
+    console.log(removeDuplicates([1, 2, 2, 3, 4, 4])); // Output: [1, 2, 3, 4]
+    ```
+
+15. **Convert a string to title case:**
+    ```javascript
+    function titleCase(str) {
+        return str
+            .split(' ')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+    }
+    console.log(titleCase("hello world")); // Output: "Hello World"
+    ```
+
+---
+
+
