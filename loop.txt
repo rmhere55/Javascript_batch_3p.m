@@ -1,0 +1,188 @@
+Here are **10 basic JavaScript loop questions** to practice:  
+
+### **1. Print numbers from 1 to 10**  
+Write a `for` loop that prints numbers from **1 to 10**.  
+
+### **2. Print even numbers from 1 to 20**  
+Use a loop to print all even numbers between **1 and 20**.  
+
+### **3. Print odd numbers from 1 to 15**  
+Use a loop to print all odd numbers from **1 to 15**.  
+
+### **4. Sum of first N natural numbers**  
+Take an input `n` and calculate the sum of numbers from **1 to n** using a loop.  
+
+### **5. Print numbers from 10 to 1 (reverse order)**  
+Write a loop that prints numbers from **10 to 1**.  
+
+### **6. Print the multiplication table of a number**  
+Take an input number and print its multiplication table up to **10** using a loop.  
+
+### **7. Count from 1 to 50, but skip numbers divisible by 5**  
+Print numbers from **1 to 50**, but **skip** numbers that are divisible by 5 using `continue`.  
+
+### **8. Print the sum of all even numbers from 1 to 100**  
+Use a loop to find the sum of all even numbers between **1 and 100**.  
+
+### **9. Print each character of a string**  
+Take a string and use a loop to print each **character** one by one.  
+
+### **10. Find the factorial of a number (n!)**  
+Take an input `n` and calculate the factorial **n! = n × (n-1) × ... × 1** using a loop.  
+
+Would you like solutions for any of these? 🚀
+
+
+
+
+
+Here are 10 JavaScript loop questions ranging from basic to mid-level:  
+
+### **Basic Questions**  
+1. **Print numbers from 1 to 10**  
+   - Write a loop that prints numbers from `1` to `10` using a `for` loop.  
+
+2. **Sum of first N natural numbers**  
+   - Take an input `n` and find the sum of all natural numbers from `1` to `n` using a loop.  
+
+3. **Print even numbers from 1 to 20**  
+   - Use a `while` loop to print all even numbers between `1` and `20`.  
+
+4. **Reverse counting from 10 to 1**  
+   - Print numbers from `10` to `1` using a `for` loop.  
+
+5. **Multiplication table of a given number**  
+   - Take an input number and print its multiplication table up to `10` using a loop.  
+
+### **Mid-Level Questions**  
+6. **Count digits in a number**  
+   - Given a number, count how many digits it has using a loop.  
+   - Example: `num = 12345`, output = `5`.  
+
+7. **Factorial of a number**  
+   - Calculate the factorial of a number `n` using a loop.  
+   - Example: `5! = 5 × 4 × 3 × 2 × 1 = 120`.  
+
+8. **Reverse a number**  
+   - Take a number as input and reverse it using a loop.  
+   - Example: `1234` → `4321`.  
+
+9. **Check if a number is prime**  
+   - Write a loop that checks whether a given number is prime or not.  
+
+10. **Fibonacci series**  
+   - Print the first `n` Fibonacci numbers using a loop.  
+   - Example: `0, 1, 1, 2, 3, 5, 8, ...`  
+
+Would you like solutions for any of these? 🚀
+
+
+
+
+
+
+Here are the solutions for the **10 basic JavaScript loop questions** 🚀  
+
+---
+
+### **1. Print numbers from 1 to 10**
+```js
+for (let i = 1; i <= 10; i++) {
+  console.log(i);
+}
+```
+
+---
+
+### **2. Print even numbers from 1 to 20**
+```js
+for (let i = 2; i <= 20; i += 2) {
+  console.log(i);
+}
+```
+
+---
+
+### **3. Print odd numbers from 1 to 15**
+```js
+for (let i = 1; i <= 15; i += 2) {
+  console.log(i);
+}
+```
+
+---
+
+### **4. Sum of first N natural numbers**
+```js
+let n = 10; // Change this value as needed
+let sum = 0;
+for (let i = 1; i <= n; i++) {
+  sum += i;
+}
+console.log("Sum of first", n, "natural numbers:", sum);
+```
+
+---
+
+### **5. Print numbers from 10 to 1 (reverse order)**
+```js
+for (let i = 10; i >= 1; i--) {
+  console.log(i);
+}
+```
+
+---
+
+### **6. Print the multiplication table of a number**
+```js
+let num = 5; // Change this value as needed
+for (let i = 1; i <= 10; i++) {
+  console.log(`${num} × ${i} = ${num * i}`);
+}
+```
+
+---
+
+### **7. Count from 1 to 50, but skip numbers divisible by 5**
+```js
+for (let i = 1; i <= 50; i++) {
+  if (i % 5 === 0) continue; // Skip numbers divisible by 5
+  console.log(i);
+}
+```
+
+---
+
+### **8. Print the sum of all even numbers from 1 to 100**
+```js
+let sumEven = 0;
+for (let i = 2; i <= 100; i += 2) {
+  sumEven += i;
+}
+console.log("Sum of even numbers from 1 to 100:", sumEven);
+```
+
+---
+
+### **9. Print each character of a string**
+```js
+let str = "JavaScript";
+for (let i = 0; i < str.length; i++) {
+  console.log(str[i]);
+}
+```
+
+---
+
+### **10. Find the factorial of a number (n!)**
+```js
+let numFactorial = 5; // Change this value as needed
+let factorial = 1;
+for (let i = numFactorial; i >= 1; i--) {
+  factorial *= i;
+}
+console.log(`Factorial of ${numFactorial} is:`, factorial);
+```
+
+---
+
